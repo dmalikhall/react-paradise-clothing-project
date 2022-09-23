@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaBars } from 'react-icons/fa';
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useGlobalContext } from '../context';
 import sublinks from '../sublinks';
-import Submenu from './Submenu';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,24 +12,24 @@ import Submenu from './Submenu';
 function Navbar() {
     // const [showLinks, setShowLinks] = useState(false);
     const data = useGlobalContext()
-    
-    const {openSidebar,openSubmenu, closeSubmenu} = data;
-    const {isSidebarOpen, closeSidebar} = data;
-    const {isSubmenuOpen} = data;
+
+    const { openSidebar, openSubmenu, closeSubmenu } = data;
+    const { isSidebarOpen, closeSidebar } = data;
+    const { isSubmenuOpen } = data;
 
     const displaySubmenu = (e) => {
         const page = e.target.textContent;
         const tempBtn = e.target.getBoundingClientRect();
-        const center  = (tempBtn.left + tempBtn.right) / 2;
+        const center = (tempBtn.left + tempBtn.right) / 2;
         const bottom = tempBtn.bottom - 3;
-        openSubmenu(page, {center, bottom})
+        openSubmenu(page, { center, bottom })
     }
 
     const handleSubmenu = (e) => {
-        if(!e.target.classList.contains('link-btn')) {
+        if (!e.target.classList.contains('link-btn')) {
             closeSubmenu()
         }
-        
+
     }
     return (
         <>
@@ -41,15 +41,15 @@ function Navbar() {
                 </div>
 
                 <div className="mobile-nav_list">
-                    {sublinks.map((item, index)=> {
-                        const {links, page} = item;
+                    {sublinks.map((item, index) => {
+                        const { links, page } = item;
                         return <article key={index} className='link-header'>
                             <h4>{page}</h4>
                             <div className="sidebar-sublinks">
                                 {links.map((link, index) => {
-                                    const {url, label} = link;
+                                    const { url, label } = link;
                                     return (
-                                        <a key={index} href={url}>{label}</a>
+                                        <Link key={index} to={url} onClick={closeSidebar}>{label}</Link>
                                     )
 
                                 })}
@@ -81,7 +81,7 @@ function Navbar() {
 
             <nav onMouseOver={handleSubmenu}>
                 <div className="nav-container">
-                    
+
                     <ul className="nav-list">
                         <li>
                             <button className='link-btn' onMouseOver={displaySubmenu}>tops</button>
@@ -94,7 +94,12 @@ function Navbar() {
                         </li>
                     </ul>
 
-                    <div className="brand">Paradise</div>
+                    <div className="brand">
+                        <Link to='/' className='brand-color'>
+                            Paradise
+                        </Link>
+
+                    </div>
 
                     <div className="socials">
                         <a href="#" className='social-link'>

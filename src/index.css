@@ -10,6 +10,8 @@
 
 
 
+
+
 .header {
   background-color: #222;
   color: white;
@@ -163,12 +165,18 @@ nav {
 
 
 .brand {
+
   font-weight: 700;
   font-size: 31px;
 
   grid-column: 2;
 
 
+}
+
+.brand .brand-color {
+  text-decoration: none;
+  color: inherit;
 }
 
 .socials {
@@ -286,6 +294,8 @@ nav {
 
   .brand {
     order: 1;
+    text-decoration: none;
+    color: inherit;
   }
 
   .toggle-menu-btn {
