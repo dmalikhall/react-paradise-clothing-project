@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa';
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
@@ -15,14 +15,17 @@ function Navbar() {
 
     const { openSidebar, openSubmenu, closeSubmenu } = data;
     const { isSidebarOpen, closeSidebar } = data;
-    const { isSubmenuOpen } = data;
+
+
+    const [isFixedNavbar, setIsFixedNavbar] = useState(false)
+ 
 
     const displaySubmenu = (e) => {
         const page = e.target.textContent;
-        const tempBtn = e.target.getBoundingClientRect();
+        const tempBtn = e.target.getBoundingClientRect();      
         const center = (tempBtn.left + tempBtn.right) / 2;
         const bottom = tempBtn.bottom - 3;
-        openSubmenu(page, { center, bottom })
+        openSubmenu(page, {center, bottom })
     }
 
     const handleSubmenu = (e) => {
@@ -31,6 +34,29 @@ function Navbar() {
         }
 
     }
+
+    const fixedNavbar = () => {
+        if(window.scrollY >= 67) {
+            setIsFixedNavbar(true)
+        } else {
+            setIsFixedNavbar(false)
+        }
+    }
+
+    useEffect(()=> {
+        window.addEventListener('scroll', fixedNavbar);
+        return () => {
+            window.removeEventListener('scroll', fixedNavbar)
+        }
+
+    },[])
+
+    // window.addEventListener('scroll', fixedNavbar)
+
+
+
+
+
     return (
         <>
             <section className={`${isSidebarOpen ? 'mobile-nav open_mobile-nav' : 'mobile-nav'}`}>
@@ -56,20 +82,17 @@ function Navbar() {
                             </div>
                         </article>
                     })}
-                    {/* <a href="#" className='mobile-nav_item'>All</a>
-                    <a href="#" className='mobile-nav_item'>Tops</a>
-                    <a href="#" className='mobile-nav_item'>Bottoms</a>
-                    <a href="#" className='mobile-nav_item'>Accessories</a> */}
+
                 </div>
 
                 <div className="mobile-nav_socials">
-                    <a href="#" className='mobile-nav_social-link'>
+                    <a href="https://www.facebook.com/" className='mobile-nav_social-link'>
                         <FaFacebookSquare />
                     </a>
-                    <a href="#" className='mobile-nav_social-link'>
+                    <a href="https://www.instagram.com/" className='mobile-nav_social-link'>
                         <FaInstagramSquare />
                     </a>
-                    <a href="#" className='mobile-nav_social-link'>
+                    <a href="https://twitter.com/" className='mobile-nav_social-link'>
                         <FaTwitterSquare />
                     </a>
                 </div>
@@ -80,7 +103,7 @@ function Navbar() {
             </header>
 
             <nav onMouseOver={handleSubmenu}>
-                <div className="nav-container">
+                <div className={`${isFixedNavbar ? 'nav-container fixed-nav' : 'nav-container'}`}>
 
                     <ul className="nav-list">
                         <li>
@@ -102,13 +125,13 @@ function Navbar() {
                     </div>
 
                     <div className="socials">
-                        <a href="#" className='social-link'>
+                        <a href="https://www.facebook.com/" className='social-link'>
                             <FaFacebookSquare />
                         </a>
-                        <a href="#" className='social-link'>
+                        <a href="https://www.instagram.com/" className='social-link'>
                             <FaInstagramSquare />
                         </a>
-                        <a href="#" className='social-link'>
+                        <a href="https://twitter.com/" className='social-link'>
                             <FaTwitterSquare />
                         </a>
                     </div>

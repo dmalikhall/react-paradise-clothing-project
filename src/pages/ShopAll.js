@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import products from '../data';
 import { useGlobalContext } from '../context';
 
+
 const ShopAll = () => {
   const { closeSubmenu } = useGlobalContext();
-  
+
   return (
     <div className="whole-container" onMouseOver={closeSubmenu}>
       <div className="products-container">
