@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import products from '../data';
 import accordian from '../accordianData';
 import Accordian from './Accordian';
 import { useGlobalContext } from '../context';
 
+
 const SingleProduct = () => {
     const { productId } = useParams();
     const product = products.find((product) => product.id === productId);
-    const { name, image, price } = product
-    const { closeSubmenu } = useGlobalContext();
+    const { id, name, image, price } = product
+    const { closeSubmenu, addToCart } = useGlobalContext();
 
     return (
         <div className="whole-container" onMouseOver={closeSubmenu}>
@@ -22,7 +22,7 @@ const SingleProduct = () => {
                     <h3>{name}</h3>
                     <p>${price}</p>
                     <div className="buttons">
-                        <button className='add-to-cart'>Add to Cart</button>
+                        <button className='add-to-cart' type='button' onClick={()=> addToCart(id)}>Add to Cart</button>
                         <button className='buy-now'>Buy Now</button>
                     </div>
 
