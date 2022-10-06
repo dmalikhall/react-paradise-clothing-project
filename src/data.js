@@ -8,6 +8,7 @@ const products = [
         subCategory: 'short-sleeves',
         sizes: ['small', 'medium', 'large'],
         price: 49.99,
+        amount: 1,
 
 
 
@@ -20,6 +21,7 @@ const products = [
         subCategory: 'short-sleeves',
         sizes: ['small', 'medium', 'large'],
         price: 49.99,
+        amount: 1,
     }, {
         id: '03kf9ff7fg7',
         name: 'infuse t-shirt',
@@ -28,6 +30,7 @@ const products = [
         subCategory: 'short-sleeves',
         sizes: ['small', 'medium', 'large'],
         price: 49.99,
+        amount: 1,
     }, {
         id: 'pffif8f7fy7',
         name: 'mona lisa t-shirt',
@@ -36,6 +39,7 @@ const products = [
         subCategory: 'short-sleeves',
         sizes: ['small', 'medium', 'large'],
         price: 49.99,
+        amount: 1,
     },
     // long sleeves
     
@@ -47,6 +51,7 @@ const products = [
         subCategory: 'long sleeves',
         sizes: ['small', 'medium', 'large'],
         price: 54.99,
+        amount: 1,
 
     }, 
     {
@@ -57,6 +62,7 @@ const products = [
         subCategory: 'long sleeves',
         sizes: ['medium', 'large'],
         price: 54.99,
+        amount: 1,
     },
     {
         id: 'adtgd6dgwu2',
@@ -66,6 +72,7 @@ const products = [
         subCategory: 'long sleeves',
         sizes: ['small', 'medium', 'large'],
         price: 54.99,
+        amount: 1,
     },
     {
         id:'0sjd7h32',
@@ -75,6 +82,7 @@ const products = [
         subCategory: 'long sleeves',
         sizes: ['small', 'medium', 'large'],
         price: 54.99,
+        amount: 1,
     },
     // jackets
     {
@@ -85,6 +93,7 @@ const products = [
         subCategory: 'jackets',
         sizes: ['small', 'medium', 'large'],
         price: 67.99,
+        amount: 1,
     },
     {
         id: '10shhhkkwue1q',
@@ -94,6 +103,7 @@ const products = [
         subCategory: 'jackets',
         sizes: ['small', 'medium', 'large'],
         price: 67.99,
+        amount: 1,
     },
     {
         id: 'k3jd7w6dhk',
@@ -103,6 +113,7 @@ const products = [
         subCategory: 'jackets',
         sizes: ['small', 'medium',],
         price: 67.99,
+        amount: 1,
     },
     {
         id:'6hskh2hdg6',
@@ -112,6 +123,7 @@ const products = [
         subCategory: 'jackets',
         sizes: [ 'medium','large'],
         price: 67.99,
+        amount: 1,
     },
 
     // hoodies
@@ -123,6 +135,7 @@ const products = [
         subCategory: 'hoodies',
         sizes: [ 'small','medium','large'],
         price: 65.99,
+        amount: 1,
     },
     {
         id: 'ps39fdhf73',

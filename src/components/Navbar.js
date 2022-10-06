@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa';
-import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaShoppingCart } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useGlobalContext } from '../context';
 import sublinks from '../sublinks';
@@ -11,21 +11,23 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
     // const [showLinks, setShowLinks] = useState(false);
-    const data = useGlobalContext()
+    const data = useGlobalContext();
+
 
     const { openSidebar, openSubmenu, closeSubmenu } = data;
     const { isSidebarOpen, closeSidebar } = data;
+    const { amount } = data;
 
 
     const [isFixedNavbar, setIsFixedNavbar] = useState(false)
- 
+
 
     const displaySubmenu = (e) => {
         const page = e.target.textContent;
-        const tempBtn = e.target.getBoundingClientRect();      
+        const tempBtn = e.target.getBoundingClientRect();
         const center = (tempBtn.left + tempBtn.right) / 2;
         const bottom = tempBtn.bottom - 3;
-        openSubmenu(page, {center, bottom })
+        openSubmenu(page, { center, bottom })
     }
 
     const handleSubmenu = (e) => {
@@ -36,20 +38,20 @@ function Navbar() {
     }
 
     const fixedNavbar = () => {
-        if(window.scrollY >= 67) {
+        if (window.scrollY >= 67) {
             setIsFixedNavbar(true)
         } else {
             setIsFixedNavbar(false)
         }
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         window.addEventListener('scroll', fixedNavbar);
         return () => {
             window.removeEventListener('scroll', fixedNavbar)
         }
 
-    },[])
+    }, [])
 
     // window.addEventListener('scroll', fixedNavbar)
 
@@ -61,8 +63,15 @@ function Navbar() {
         <>
             <section className={`${isSidebarOpen ? 'mobile-nav open_mobile-nav' : 'mobile-nav'}`}>
                 <div className="mobile-nav_header">
+                    <div className="full-cart">
+                        <button type='button'>
+                            <FaShoppingCart />
+                            <span className='full-cart-amount'>{amount}</span>
+                        </button>
+                    </div>
                     <button onClick={closeSidebar} className='close-btn'>
                         <AiOutlineCloseCircle />
+
                     </button>
                 </div>
 
@@ -115,6 +124,13 @@ function Navbar() {
                         <li>
                             <button className='link-btn' onMouseOver={displaySubmenu}>accessories</button>
                         </li>
+
+                        <div className="web-full-cart">
+                            <button type='button'>
+                                <FaShoppingCart />
+                                <span className='full-cart-amount'>{amount}</span>
+                            </button>
+                        </div>
                     </ul>
 
                     <div className="brand">
@@ -124,7 +140,33 @@ function Navbar() {
 
                     </div>
 
-                    <div className="socials">
+
+
+                    <div className="icons">
+                        <div className="web-full-cart">
+                            <button type='button'>
+                                <FaShoppingCart />
+                                <span className='full-cart-amount'>{amount}</span>
+                            </button>
+                        </div>
+                        <div className="socials">
+
+                            <a href="https://www.facebook.com/" className='social-link'>
+                                <FaFacebookSquare />
+                            </a>
+                            <a href="https://www.instagram.com/" className='social-link'>
+                                <FaInstagramSquare />
+                            </a>
+                            <a href="https://twitter.com/" className='social-link'>
+                                <FaTwitterSquare />
+                            </a>
+                        </div>
+
+
+
+                    </div>
+                    {/* <div className="socials">
+
                         <a href="https://www.facebook.com/" className='social-link'>
                             <FaFacebookSquare />
                         </a>
@@ -134,7 +176,14 @@ function Navbar() {
                         <a href="https://twitter.com/" className='social-link'>
                             <FaTwitterSquare />
                         </a>
-                    </div>
+                    </div> */}
+
+                    {/* <div className="full-cart">
+                        <button type='button'>
+                            <FaShoppingCart />
+                            <span className='full-cart-amount'>{amount}</span>
+                        </button>
+                    </div> */}
 
                     <div className='toggle-menu-btn'>
                         <button onClick={openSidebar}>

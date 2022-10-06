@@ -1,6 +1,1 @@
-exports.handler = async (event, context, cb) => {
-    return {
-        statusCode: 200,
-        body: 'Our Clothing API'
-    }
-}
+export const products_url = 'https://my-clothing-reacts-api.herokuapp.com/products'

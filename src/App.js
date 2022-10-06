@@ -76,6 +76,8 @@ function App() {
         <Route path='sunglasses/:productId' element={<SingleProduct/>}/>
         <Route path='headphones' element={<Headphones />} />
         <Route path='headphones/:productId' element={<SingleProduct/>}/>
+
+        <Route path='shopping-cart' element={<ShoppingCart/>}/>
         
         <Route path='*' element={<Error />} />
         
@@ -86,5 +88,7 @@ function App() {
 }
 
 export default App;
+
+// https://my-clothing-reacts-api.herokuapp.com/products
 
 
