@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import Submenu from './components/Submenu';
 import SingleProduct from './components/SingleProduct';
+import ShoppingCart from './components/ShoppingCart';
 import Home from "./pages/Home";
 import ShopAll from './pages/ShopAll';
 import AllTops from './pages/AllTops';
@@ -21,7 +22,7 @@ import Sunglasses from './pages/Sunglasses';
 import Headphones from './pages/Headphones';
 
 import Error from './pages/Error';
-import ShoppingCart from './components/ShoppingCart';
+
 import {useGlobalContext} from './context'
 
 
@@ -45,6 +46,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />}/>
+        <Route path='/shopping-cart' element={<ShoppingCart/>}/>
         <Route path='shop-all' element={<ShopAll />} />
         <Route path='shop-all/:productId' element={<SingleProduct/>}/>
 
@@ -77,7 +79,7 @@ function App() {
         <Route path='headphones' element={<Headphones />} />
         <Route path='headphones/:productId' element={<SingleProduct/>}/>
 
-        <Route path='shopping-cart' element={<ShoppingCart/>}/>
+        
         
         <Route path='*' element={<Error />} />
         

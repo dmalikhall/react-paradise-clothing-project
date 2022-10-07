@@ -7,21 +7,22 @@ import CartItem from './CartItem';
 
 
 const ShoppingCart = () => {
-    const { cart, total, clearCart } = useGlobalContext();
-    if (cart.length === 0) {
-        return (
-            <section className='cart-container'>
-                <header>
-                    <h2>your bag</h2>
-                    <h4>is empty</h4>
-                </header>
+    // const { cart, total, clearCart } = useGlobalContext();
+    // if (cart.length === 0) {
+    //     return (
+    //         <section className='cart-container'>
+    //             <header>
+    //                 <h2>your bag</h2>
+    //                 <h4>is empty</h4>
+    //             </header>
 
-            </section>
-        )
-    }
+    //         </section>
+    //     )
+    // }
     return (
         <main>
-            <section className="cart-container">
+            <h1>shopping cart</h1>
+            {/* <section className="cart-container">
                 <div className="headlines">
                     <div className="content">
                         <h5>item</h5>
@@ -38,7 +39,7 @@ const ShoppingCart = () => {
                             return <CartItem key={item.id} {...item} />
                         })}
                     </div>
-                </div>
+                </div> */}
 
 
 
@@ -64,7 +65,7 @@ const ShoppingCart = () => {
 
                 </article> */}
 
-                <div className="cart-link-container">
+                {/* <div className="cart-link-container">
                     <a href="#" className='cart-link-btn'>continue shopping</a>
                     <button type='button' className='cart-link-btn clear-btn' onClick={clearCart}>clear shopping cart</button>
                 </div>
@@ -84,7 +85,7 @@ const ShoppingCart = () => {
                     </article>
                 </section>
 
-            </section>
+            </section> */}
         </main>
     )
 }

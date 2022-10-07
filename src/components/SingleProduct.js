@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import products from '../data';
 import accordian from '../accordianData';
@@ -11,9 +11,40 @@ import exampleProducts from '../exampleproducts';
 
 const SingleProduct = () => {
     const { productId } = useParams();
-    const product = products.find((product) => product.id === productId);
-    const { id, name, image, price, sizes,  } = product
-    const { closeSubmenu, addToCart, increaseItem, decreaseItem, amount } = useGlobalContext();
+    const { closeSubmenu, allProducts } = useGlobalContext();
+    const product = allProducts.find((product) => product.id === productId);
+    // const product = products.find((product) => product.id === productId);
+    const { id, name, image, price, sizes, amount } = product
+
+    const [mainSize, setMainSize] = useState(sizes[0]);
+    const [theAmount, setTheAmount] = useState(amount)
+
+
+    const increase = () => {
+        setTheAmount((oldAmount)=> {
+            let tempAmount = oldAmount + 1;
+
+            if (tempAmount > 5) {
+                tempAmount = oldAmount
+            }
+            return tempAmount
+
+        })
+    }
+
+    const decrease = () => {
+        setTheAmount((oldAmount) => {
+            let tempAmount = oldAmount - 1;
+
+            if (tempAmount < 1) {
+                tempAmount = 1
+            }
+
+            return tempAmount
+        })
+
+    }
+
 
     return (
         <div className="whole-container" onMouseOver={closeSubmenu}>
@@ -26,16 +57,34 @@ const SingleProduct = () => {
                     <p>${price}</p>
 
                     <div className="amount-btns">
-                        <button type='button' className='amount-btn' onClick={()=> decreaseItem(id)}><AiOutlineMinus/></button>
-                        <h2 className='amount'>{amount}</h2>
-                        <button type='button' className='amount-btn' onClick={()=> increaseItem(id)}><AiOutlinePlus/></button>
+                        <button type='button' className='amount-btn' onClick={decrease}><AiOutlineMinus /></button>
+                        <h2 className='amount'>{theAmount}</h2>
+                        <button type='button' className='amount-btn' onClick={increase}><AiOutlinePlus /></button>
                     </div>
+
+                    <section className='select-size-container'>
+                        <h4>select size</h4>
+
+                        <div className="select-size-button-container">
+                            {sizes.map((size, index) => {
+                                return (
+                                    <button className={`${mainSize === size ? 'select-size-btn active' : 'select-size-btn'}`} key={index} onClick={() => setMainSize(size)}>{size}</button>
+
+                                )
+                            })}
+
+
+                        </div>
+
+
+                    </section>
 
 
                     <div className="buttons">
-                        <button className='add-to-cart' type='button'>
-                            Add to Cart
-                        </button>
+                        <Link to='/shopping-cart' >
+                            <button className='add-to-cart' type='button'>Add to Cart</button>
+                           
+                        </Link>
 
                         <button className='buy-now'>Buy Now</button>
                     </div>
