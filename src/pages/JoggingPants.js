@@ -4,12 +4,12 @@ import products from '../data';
 import { useGlobalContext } from '../context';
 
 const JoggingPants = () => {
-  const { closeSubmenu } = useGlobalContext();
+  const { closeSubmenu, allJoggingPantsItems } = useGlobalContext();
   return (
     <div className="whole-container" onMouseOver={closeSubmenu}>
       <div className="products-container">
-        {products.filter((category) => category.subCategory === 'jogging pants')
-          .map((category) => {
+        {
+          allJoggingPantsItems.map((category) => {
             const { id, name, image, price } = category;
             return (
               <Link to={`/jogging-pants/${category.id}`} key={id} className='product-item'>
@@ -26,5 +26,7 @@ const JoggingPants = () => {
     </div>
   )
 }
+
+// products.filter((category) => category.subCategory === 'jogging pants')
 
 export default JoggingPants

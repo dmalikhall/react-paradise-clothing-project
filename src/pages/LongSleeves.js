@@ -4,12 +4,12 @@ import products from '../data';
 import { useGlobalContext } from '../context';
 
 const LongSleeves = () => {
-  const { closeSubmenu } = useGlobalContext();
+  const { closeSubmenu, allLongSleeveItems } = useGlobalContext();
   return (
     <div className="whole-container" onMouseOver={closeSubmenu}>
       <div className="products-container">
-        {products.filter((category) => category.subCategory === 'long sleeves')
-          .map((category) => {
+        {
+          allLongSleeveItems.map((category) => {
             const { id, name, image, price } = category;
             return (
               <Link to={`/long-sleeves/${category.id}`} key={id} className='product-item'>
@@ -26,5 +26,7 @@ const LongSleeves = () => {
     </div>
   )
 }
+
+// products.filter((category) => category.subCategory === 'long sleeves')
 
 export default LongSleeves

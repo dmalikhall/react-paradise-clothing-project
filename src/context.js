@@ -14,6 +14,17 @@ const initialState = {
     allProducts: [],
     allTopsItems: [],
     allAccessoryItems:[],
+    allBottomItems:[],
+    allHatItems: [],
+    allHeadphoneItems: [],
+    allHoodyItems: [],
+    allJacketItems: [],
+    allJoggingPantsItems: [],
+    allLongSleeveItems: [],
+    allShortsItems: [],
+    allShortSleevesItems: [],
+    allSunglassesItems: [],
+    allTightsItems: []
 
 }
 
