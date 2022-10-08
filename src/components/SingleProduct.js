@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import products from '../data';
+
 import accordian from '../accordianData';
 import Accordian from './Accordian';
 import { useGlobalContext } from '../context';
-import ShoppingCart from './ShoppingCart';
+import { useCartContext } from '../contexts/cart_context';
+
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import exampleProducts from '../exampleproducts';
+
+
+
 
 
 const SingleProduct = () => {
     const { productId } = useParams();
     const { closeSubmenu, allProducts } = useGlobalContext();
+    const { addToCart } = useCartContext();
+
     const product = allProducts.find((product) => product.id === productId);
     // const product = products.find((product) => product.id === productId);
     const { id, name, image, price, sizes, amount } = product
@@ -21,7 +26,7 @@ const SingleProduct = () => {
 
 
     const increase = () => {
-        setTheAmount((oldAmount)=> {
+        setTheAmount((oldAmount) => {
             let tempAmount = oldAmount + 1;
 
             if (tempAmount > 5) {
@@ -82,8 +87,8 @@ const SingleProduct = () => {
 
                     <div className="buttons">
                         <Link to='/shopping-cart' >
-                            <button className='add-to-cart' type='button'>Add to Cart</button>
-                           
+                            <button className='add-to-cart' type='button'onClick={()=> addToCart(id, mainSize, theAmount, product)}>Add to Cart</button>
+
                         </Link>
 
                         <button className='buy-now'>Buy Now</button>

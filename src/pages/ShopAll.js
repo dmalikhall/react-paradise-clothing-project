@@ -5,12 +5,12 @@ import { useGlobalContext } from '../context';
 
 
 const ShopAll = () => {
-  const { closeSubmenu } = useGlobalContext();
+  const { closeSubmenu, allProducts } = useGlobalContext();
 
   return (
     <div className="whole-container" onMouseOver={closeSubmenu}>
       <div className="products-container">
-        {products.map((product) => {
+        {allProducts.map((product) => {
           const { id, name, image, price } = product;
           return (
             <Link to={`/shop-all/${product.id}`} key={id} className='product-item'>

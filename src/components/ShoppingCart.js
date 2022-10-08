@@ -4,25 +4,30 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { useGlobalContext } from '../context';
 import exampleProducts from '../exampleproducts';
 import CartItem from './CartItem';
+import { useCartContext } from '../contexts/cart_context';
+import { Link } from 'react-router-dom';
 
 
 const ShoppingCart = () => {
-    // const { cart, total, clearCart } = useGlobalContext();
-    // if (cart.length === 0) {
-    //     return (
-    //         <section className='cart-container'>
-    //             <header>
-    //                 <h2>your bag</h2>
-    //                 <h4>is empty</h4>
-    //             </header>
+    const {cart} = useCartContext();
 
-    //         </section>
-    //     )
-    // }
+    if (cart.length === 0) {
+        return (
+            <section className='cart-container'>
+                <header>
+                    <h2>your bag</h2>
+                    <h4>is empty</h4>
+                </header>
+                <Link to='/shop-all'>fill it
+                </Link>
+
+            </section>
+        )
+    } 
     return (
         <main>
             <h1>shopping cart</h1>
-            {/* <section className="cart-container">
+            <section className="cart-container">
                 <div className="headlines">
                     <div className="content">
                         <h5>item</h5>
@@ -35,11 +40,9 @@ const ShoppingCart = () => {
 
                 <div>
                     <div>
-                        {cart.map((item) => {
-                            return <CartItem key={item.id} {...item} />
-                        })}
+                        <CartItem/>
                     </div>
-                </div> */}
+                </div>
 
 
 
@@ -65,15 +68,15 @@ const ShoppingCart = () => {
 
                 </article> */}
 
-                {/* <div className="cart-link-container">
+                <div className="cart-link-container">
                     <a href="#" className='cart-link-btn'>continue shopping</a>
-                    <button type='button' className='cart-link-btn clear-btn' onClick={clearCart}>clear shopping cart</button>
+                    <button type='button' className='cart-link-btn clear-btn' >clear shopping cart</button>
                 </div>
 
                 <section className='margin-top'>
                     <article className='mobile-cart'>
                         <h5>subtotal:
-                            <span>${total}</span>
+                            <span>$</span>
                         </h5>
                         <p>shipping fee
                             <span>$5.34</span>
@@ -85,7 +88,7 @@ const ShoppingCart = () => {
                     </article>
                 </section>
 
-            </section> */}
+            </section>
         </main>
     )
 }
