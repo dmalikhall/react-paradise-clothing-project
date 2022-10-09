@@ -5,6 +5,7 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useGlobalContext } from '../context';
 import sublinks from '../sublinks';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../contexts/cart_context';
 
 
 
@@ -17,6 +18,8 @@ function Navbar() {
     const { openSidebar, openSubmenu, closeSubmenu } = data;
     const { isSidebarOpen, closeSidebar } = data;
     const { amount } = data;
+
+    const {total_items} = useCartContext()
 
 
     const [isFixedNavbar, setIsFixedNavbar] = useState(false)
@@ -66,7 +69,7 @@ function Navbar() {
                     <div className="full-cart">
                         <button type='button'>
                             <FaShoppingCart />
-                            <span className='full-cart-amount'>{amount}</span>
+                            <span className='full-cart-amount'>{total_items}</span>
                         </button>
                     </div>
                     <button onClick={closeSidebar} className='close-btn'>
@@ -128,7 +131,7 @@ function Navbar() {
                         <div className="web-full-cart">
                             <button type='button'>
                                 <FaShoppingCart />
-                                <span className='full-cart-amount'>{amount}</span>
+                                <span className='full-cart-amount'>{total_items}</span>
                             </button>
                         </div>
                     </ul>
@@ -146,7 +149,7 @@ function Navbar() {
                         <div className="web-full-cart">
                             <button type='button'>
                                 <FaShoppingCart />
-                                <span className='full-cart-amount'>{amount}</span>
+                                <span className='full-cart-amount'>{total_items}</span>
                             </button>
                         </div>
                         <div className="socials">

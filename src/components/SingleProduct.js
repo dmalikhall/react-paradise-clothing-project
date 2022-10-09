@@ -7,6 +7,7 @@ import { useGlobalContext } from '../context';
 import { useCartContext } from '../contexts/cart_context';
 
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import AmountButtons from './AmountButtons';
 
 
 
@@ -67,6 +68,8 @@ const SingleProduct = () => {
                         <button type='button' className='amount-btn' onClick={increase}><AiOutlinePlus /></button>
                     </div>
 
+
+
                     <section className='select-size-container'>
                         <h4>select size</h4>
 
@@ -87,7 +90,7 @@ const SingleProduct = () => {
 
                     <div className="buttons">
                         <Link to='/shopping-cart' >
-                            <button className='add-to-cart' type='button'onClick={()=> addToCart(id, mainSize, theAmount, product)}>Add to Cart</button>
+                            <button className='add-to-cart' type='button' onClick={() => addToCart(id, mainSize, theAmount, product)}>Add to Cart</button>
 
                         </Link>
 

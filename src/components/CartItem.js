@@ -1,36 +1,55 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BsTrashFill } from 'react-icons/bs';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { useGlobalContext } from "../context";
 import exampleProducts from "../exampleproducts";
+import { useCartContext } from '../contexts/cart_context';
+
 
 const CartItem = () => {
-    
-    
+    const { cart, total_amount, removeItem, toggleAmount, } = useCartContext();
+
+
+
+
     return (
-        <h1>Cart Item</h1>
-        // <article className='cart-item'>
-        //     <div className="title">
-        //         <img src={image} alt={name} />
-        //         <div>
-        //             <h5 className='name'>{name}</h5>
-        //             <p className='size'>size: {sizes}</p>
-        //             <h5 className='price-small'>${price}</h5>
-        //         </div>
+        <>
+            {cart.map((item) => {
+                const { id, name, sizes, amount, image, price } = item;
+                const increase =() => {toggleAmount(id, 'inc')}
 
-        //     </div>
-        //     <h5 className='price'>${price}</h5>
-        //     <div className="amount-btns">
-        //         <button type='button' className='amount-btn' ><AiOutlineMinus /></button>
-        //         <h2 className='amount'>{amount}</h2>
-        //         <button type='button' className='amount-btn' ><AiOutlinePlus /></button>
-        //     </div>
+                const decrease =() => {toggleAmount(id, 'dec')}
 
-        //     <h5 className='subtotal'>$49.99</h5>
-        //     <button className='remove-btn' ><BsTrashFill /></button>
 
-        // </article>
+                return (
+
+                    <article className='cart-item' key={id}>
+                        <div className="title">
+                            <img src={image} alt={name} />
+                            <div>
+                                <h5 className='name'>{name}</h5>
+                                <p className='size'>size: {sizes}</p>
+                                <h5 className='price-small'>${price}</h5>
+                            </div>
+
+                        </div>
+                        <h5 className='price'>${price}</h5>
+                        <div className="amount-btns">
+                            
+                            <button type='button' className='amount-btn' onClick={decrease}><AiOutlineMinus /></button>
+                            <h2 className='amount'>{amount}</h2>
+                            <button type='button' className='amount-btn' onClick={increase}><AiOutlinePlus /></button>
+                        </div>
+
+                        <h5 className='subtotal'>${total_amount}</h5>
+                        <button className='remove-btn' onClick={()=> removeItem(id)}><BsTrashFill /></button>
+
+                    </article>
+
+                )
+            })}
+        </>
     )
 }
 

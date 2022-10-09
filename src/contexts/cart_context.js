@@ -15,7 +15,7 @@ const initialState = {
     cart: getLocalStorage(),
     total_items: 0,
     total_amount: 0,
-    shipping_fee: 534
+    shipping_fee: 5.34
 }
 
 const CartContext = React.createContext()
@@ -30,19 +30,24 @@ export const CartProvider = ({ children }) => {
 
     // remove item
     const removeItem = (id) => {
+        dispatch({type:'REMOVE_ITEM', payload:id})
         // toggle amount
     }
     // toggle amount
     const toggleAmount = (id, value) => {
+        dispatch({type:'TOGGLE_CART_ITEM_AMOUNT', payload:{id, value}})
+        
 
     }
 
     // clear cart
     const clearCart = () => {
+        dispatch({type:'CLEAR_CART'})
 
     }
 
     useEffect(() => {
+        dispatch({type:'COUNT_CART_TOTALS'})
         localStorage.setItem('cart', JSON.stringify(state.cart))
 
     }, [state.cart])
