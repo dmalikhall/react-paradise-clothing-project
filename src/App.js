@@ -41,12 +41,12 @@ function App() {
     // <ShoppingCart/>
     <BrowserRouter>
       <Navbar />
-      <Submenu />
+       <Submenu />
       
 
-      <Routes>
+     <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/shopping-cart' element={<ShoppingCart/>}/>
+        {/* <Route path='/shopping-cart' element={<ShoppingCart/>}/>
         <Route path='shop-all' element={<ShopAll />} />
         <Route path='shop-all/:productId' element={<SingleProduct/>}/>
 
@@ -81,7 +81,7 @@ function App() {
 
         
         
-        <Route path='*' element={<Error />} />
+        <Route path='*' element={<Error />} /> */}
         
       </Routes>
     </BrowserRouter>

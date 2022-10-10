@@ -77,11 +77,10 @@ const cart_reducer = (state, action) => {
     }
 
     if (action.type === 'COUNT_CART_TOTALS') {
-        let { total_items, total_amount, shipping_fee} = state.cart.reduce((total, cartItem) => {
+        let { total_items, total_amount} = state.cart.reduce((total, cartItem) => {
             const {amount, price} = cartItem;
             total.total_items += amount;
             total.total_amount += price * amount;
-            // total.shipping_fee = 
             
 
 
@@ -92,6 +91,7 @@ const cart_reducer = (state, action) => {
             total_items: 0,total_amount: 0
             
         })
+
 
         total_amount = parseFloat(total_amount.toFixed(2))
         

@@ -7,11 +7,6 @@ import { useGlobalContext } from '../context';
 import { useCartContext } from '../contexts/cart_context';
 
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import AmountButtons from './AmountButtons';
-
-
-
-
 
 const SingleProduct = () => {
     const { productId } = useParams();
@@ -19,12 +14,10 @@ const SingleProduct = () => {
     const { addToCart } = useCartContext();
 
     const product = allProducts.find((product) => product.id === productId);
-    // const product = products.find((product) => product.id === productId);
     const { id, name, image, price, sizes, amount } = product
 
     const [mainSize, setMainSize] = useState(sizes[0]);
     const [theAmount, setTheAmount] = useState(amount)
-
 
     const increase = () => {
         setTheAmount((oldAmount) => {
@@ -34,7 +27,6 @@ const SingleProduct = () => {
                 tempAmount = oldAmount
             }
             return tempAmount
-
         })
     }
 
@@ -45,12 +37,10 @@ const SingleProduct = () => {
             if (tempAmount < 1) {
                 tempAmount = 1
             }
-
             return tempAmount
         })
 
     }
-
 
     return (
         <div className="whole-container" onMouseOver={closeSubmenu}>
@@ -68,8 +58,6 @@ const SingleProduct = () => {
                         <button type='button' className='amount-btn' onClick={increase}><AiOutlinePlus /></button>
                     </div>
 
-
-
                     <section className='select-size-container'>
                         <h4>select size</h4>
 
@@ -80,20 +68,14 @@ const SingleProduct = () => {
 
                                 )
                             })}
-
-
                         </div>
-
-
                     </section>
-
 
                     <div className="buttons">
                         <Link to='/shopping-cart' >
                             <button className='add-to-cart' type='button' onClick={() => addToCart(id, mainSize, theAmount, product)}>Add to Cart</button>
 
                         </Link>
-
                         <button className='buy-now'>Buy Now</button>
                     </div>
 
@@ -105,7 +87,6 @@ const SingleProduct = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 

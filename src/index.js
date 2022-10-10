@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import '../src/styles/Navbar.css';
+import '../src/styles/Submenu.css';
+import '../src/styles/Home.css'
+
 import App from './App';
 import { AppProvider } from './context';
 import { CartProvider } from './contexts/cart_context';
@@ -14,12 +18,7 @@ root.render(
   <AppProvider>
     <CartProvider>
       <App />
-
     </CartProvider>
-
-
-
   </AppProvider>
-
 );
 

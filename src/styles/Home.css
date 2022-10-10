@@ -1,0 +1,132 @@
+.whole-container {
+    padding: 0;
+}
+
+
+.hero-img {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+
+.hero-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-call-to-action {
+    display: none;
+    padding: 24px 20px;
+    max-width: 500px;
+
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+
+    opacity: .75;
+
+    cursor: pointer;
+
+}
+
+.hca-button {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+.hero-call-to-action button {
+    
+    margin-top: 20px;
+
+    background-color: transparent;
+    border: 1px solid #333;
+    padding: 1rem 1.5rem;
+
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+@media(min-width: 545px) {
+    .hero-img {
+        height: 70vh;
+    }
+
+    .hero-call-to-action {
+        display: block;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+    }
+
+    .hero-call-to-action:after {
+        content: "";
+        background-color: transparent;
+        border: 2px solid white;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+        transition: 0.2s;
+    }
+
+    .hero-call-to-action:hover {
+        opacity: 1;
+    }
+
+    .hca-button {
+        width: 100%;
+        margin: 0;
+    }
+
+    .hero-call-to-action button {
+        margin-top: 0px;
+        background-color: transparent;
+        border: none;
+
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        font-weight: 700;
+    }
+
+}
+
+.featured-items {
+    
+    margin-top: 60px;
+
+
+}
+
+.featured-items header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.featured-items .line {
+    width: 30%;
+    border: 1px solid black;
+}
+
+.featured-items header p {
+    margin: 0 10px;
+    width: fit-content;
+    text-transform: uppercase;
+}

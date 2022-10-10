@@ -1,18 +1,13 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { BsTrashFill } from 'react-icons/bs';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
-import { useGlobalContext } from "../context";
-import exampleProducts from "../exampleproducts";
 import { useCartContext } from '../contexts/cart_context';
 
 
 const CartItem = () => {
-    const { cart, total_amount, removeItem, toggleAmount, } = useCartContext();
-
-
-
-
+    const { cart, removeItem, toggleAmount } = useCartContext();
+    
     return (
         <>
             {cart.map((item) => {
@@ -21,9 +16,7 @@ const CartItem = () => {
 
                 const decrease =() => {toggleAmount(id, 'dec')}
 
-
                 return (
-
                     <article className='cart-item' key={id}>
                         <div className="title">
                             <img src={image} alt={name} />
@@ -42,7 +35,7 @@ const CartItem = () => {
                             <button type='button' className='amount-btn' onClick={increase}><AiOutlinePlus /></button>
                         </div>
 
-                        <h5 className='subtotal'>${total_amount}</h5>
+                        <h5 className='subtotal'>${price * amount}</h5>
                         <button className='remove-btn' onClick={()=> removeItem(id)}><BsTrashFill /></button>
 
                     </article>
@@ -55,4 +48,3 @@ const CartItem = () => {
 
 export default CartItem
 
-// { id, name, image, sizes, price, amount }

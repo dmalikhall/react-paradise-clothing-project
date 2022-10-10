@@ -30,14 +30,7 @@ const reducer = (state, action) => {
             allSunglassesItems: allSunglasess_items,
             allTightsItems: allTights_items
         }
-    } 
-
-    // if (action.type === 'GET_PRODUCT_SUCCESS') {
-    //     const allAccessories_items = action.payload.filter((category) => category.mainCategory === 'all-accessories')
-    //     return { ...state, allProducts: action.payload, allTopsItems: action.payload, allAccessoryItems:  allAccessories_items}
-    // }
-
-   
+    }    
 }
 
 export default reducer

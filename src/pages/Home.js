@@ -1,19 +1,23 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 
 function Home() {
     const { closeSubmenu } = useGlobalContext()
     return (
         <div className="whole-container" onMouseOver={closeSubmenu}>
-            <main >
-                <div className="hero-img">
+            <main>
+                <div className='hero-img'>
                     <img src="https://source.unsplash.com/_KaMTEmJnxY" alt="cupcakess" />
                     <Link to='/shop-all' className="hero-call-to-action">
                         <h1>Love the way you look</h1>
-                        <button type='button'>shop now</button>
+                        <div className="hca-button">
+                            <button type='button'>shop now</button>
+                        </div>
+
                     </Link>
                 </div>
+                <h2>yep</h2>
 
                 <section className='featured-items'>
                     <header>
@@ -22,7 +26,7 @@ function Home() {
                         <div className='line'></div>
                     </header>
 
-                    <div className="the-items">
+                    {/* <div className="the-items">
                         <Link to='all-tops' className="item">
                             <img src="https://source.unsplash.com/fTDWpCxLA0k" alt="cupcakess" />
                             <div className="all-category tops">
@@ -44,9 +48,12 @@ function Home() {
                                 <button>shop now</button>
                             </div>
                         </Link>
-                    </div>
+                    </div> */}
                 </section>
             </main>
+
+
+            
         </div>
     )
 }

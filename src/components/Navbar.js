@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+
+
 import { FaBars } from 'react-icons/fa';
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaShoppingCart } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
@@ -11,19 +13,14 @@ import { useCartContext } from '../contexts/cart_context';
 
 
 function Navbar() {
-    // const [showLinks, setShowLinks] = useState(false);
     const data = useGlobalContext();
-
 
     const { openSidebar, openSubmenu, closeSubmenu } = data;
     const { isSidebarOpen, closeSidebar } = data;
-    const { amount } = data;
 
-    const {total_items} = useCartContext()
-
+    const { total_items } = useCartContext()
 
     const [isFixedNavbar, setIsFixedNavbar] = useState(false)
-
 
     const displaySubmenu = (e) => {
         const page = e.target.textContent;
@@ -56,25 +53,20 @@ function Navbar() {
 
     }, [])
 
-    // window.addEventListener('scroll', fixedNavbar)
-
-
-
-
-
     return (
         <>
             <section className={`${isSidebarOpen ? 'mobile-nav open_mobile-nav' : 'mobile-nav'}`}>
                 <div className="mobile-nav_header">
                     <div className="full-cart">
-                        <button type='button'>
-                            <FaShoppingCart />
-                            <span className='full-cart-amount'>{total_items}</span>
-                        </button>
+                        <Link to='/shopping-cart'>
+                            <button type='button' onClick={closeSidebar} >
+                                <FaShoppingCart />
+                                <span className='full-cart-amount'>{total_items}</span>
+                            </button>
+                        </Link>
                     </div>
                     <button onClick={closeSidebar} className='close-btn'>
                         <AiOutlineCloseCircle />
-
                     </button>
                 </div>
 
@@ -89,12 +81,10 @@ function Navbar() {
                                     return (
                                         <Link key={index} to={url} onClick={closeSidebar}>{label}</Link>
                                     )
-
                                 })}
                             </div>
                         </article>
                     })}
-
                 </div>
 
                 <div className="mobile-nav_socials">
@@ -129,10 +119,13 @@ function Navbar() {
                         </li>
 
                         <div className="web-full-cart">
-                            <button type='button'>
-                                <FaShoppingCart />
-                                <span className='full-cart-amount'>{total_items}</span>
-                            </button>
+                            <Link to='/shopping-cart' onClick={closeSidebar}>
+                                <button type='button'>
+                                    <FaShoppingCart />
+                                    <span className='full-cart-amount'>{total_items}</span>
+                                </button>
+
+                            </Link>
                         </div>
                     </ul>
 
@@ -140,20 +133,19 @@ function Navbar() {
                         <Link to='/' className='brand-color'>
                             Paradise
                         </Link>
-
                     </div>
-
-
 
                     <div className="icons">
                         <div className="web-full-cart">
-                            <button type='button'>
-                                <FaShoppingCart />
-                                <span className='full-cart-amount'>{total_items}</span>
-                            </button>
+                            <Link to='/shopping-cart'>
+                                <button type='button' onClick={closeSidebar}>
+                                    <FaShoppingCart />
+                                    <span className='full-cart-amount'>{total_items}</span>
+                                </button>
+
+                            </Link>
                         </div>
                         <div className="socials">
-
                             <a href="https://www.facebook.com/" className='social-link'>
                                 <FaFacebookSquare />
                             </a>
@@ -165,28 +157,7 @@ function Navbar() {
                             </a>
                         </div>
 
-
-
                     </div>
-                    {/* <div className="socials">
-
-                        <a href="https://www.facebook.com/" className='social-link'>
-                            <FaFacebookSquare />
-                        </a>
-                        <a href="https://www.instagram.com/" className='social-link'>
-                            <FaInstagramSquare />
-                        </a>
-                        <a href="https://twitter.com/" className='social-link'>
-                            <FaTwitterSquare />
-                        </a>
-                    </div> */}
-
-                    {/* <div className="full-cart">
-                        <button type='button'>
-                            <FaShoppingCart />
-                            <span className='full-cart-amount'>{amount}</span>
-                        </button>
-                    </div> */}
 
                     <div className='toggle-menu-btn'>
                         <button onClick={openSidebar}>

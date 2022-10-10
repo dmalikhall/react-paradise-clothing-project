@@ -1,33 +1,30 @@
 import React from 'react';
-import { BsTrashFill } from 'react-icons/bs';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { useGlobalContext } from '../context';
-import exampleProducts from '../exampleproducts';
 import CartItem from './CartItem';
 import { useCartContext } from '../contexts/cart_context';
 import { Link } from 'react-router-dom';
-import { formatPrice } from '../helpers/format_price';
-
 
 const ShoppingCart = () => {
-    const {cart, clearCart, total_amount, shipping_fee} = useCartContext();
-    
+    const { closeSubmenu } = useGlobalContext()
+    const { cart, clearCart, total_amount, shipping_fee } = useCartContext();
+    let orderTotal = total_amount + shipping_fee;
+    orderTotal = parseFloat(orderTotal).toFixed(2)
 
     if (cart.length === 0) {
         return (
-            <section className='cart-container'>
+            <section className='cart-container empty-container'>
                 <header>
-                    <h2>your bag</h2>
-                    <h4>is empty</h4>
+                    <h2>your bag is empty</h2>
                 </header>
-                <Link to='/shop-all'>fill it
+                <Link to='/shop-all' className='fill-it_button'>
+                    <button>fill it</button>
                 </Link>
 
             </section>
         )
-    } 
+    }
     return (
-        <main>
+        <main onMouseOver={closeSubmenu}>
             <h1>shopping cart</h1>
             <section className="cart-container">
                 <div className="headlines">
@@ -42,14 +39,12 @@ const ShoppingCart = () => {
 
                 <div>
                     <div>
-                        <CartItem/>
+                        <CartItem />
                     </div>
                 </div>
 
-
-
                 <div className="cart-link-container">
-                    <a href="#" className='cart-link-btn'>continue shopping</a>
+                    <Link to={'/shop-all'} className='cart-link-btn'>continue shopping</Link>
                     <button type='button' className='cart-link-btn clear-btn' onClick={clearCart} >clear shopping cart</button>
                 </div>
 
@@ -63,11 +58,10 @@ const ShoppingCart = () => {
                         </p>
 
                         <h4>order total:
-                        <span>${total_amount + 5.34}</span>
+                            <span>${orderTotal}</span>
                         </h4>
                     </article>
                 </section>
-
             </section>
         </main>
     )
