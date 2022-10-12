@@ -25,7 +25,7 @@ const ShoppingCart = () => {
     }
     return (
         <main onMouseOver={closeSubmenu}>
-            <h1>shopping cart</h1>
+
             <section className="cart-container">
                 <div className="headlines">
                     <div className="content">
@@ -44,7 +44,9 @@ const ShoppingCart = () => {
                 </div>
 
                 <div className="cart-link-container">
-                    <Link to={'/shop-all'} className='cart-link-btn'>continue shopping</Link>
+                    <Link to={'/shop-all'} >
+                        <button className='cart-link-btn continue-shopping'>continue shopping</button>
+                    </Link>
                     <button type='button' className='cart-link-btn clear-btn' onClick={clearCart} >clear shopping cart</button>
                 </div>
 
@@ -53,7 +55,7 @@ const ShoppingCart = () => {
                         <h5>subtotal:
                             <span>${total_amount}</span>
                         </h5>
-                        <p>shipping fee
+                        <p>shipping fee:
                             <span>${shipping_fee}</span>
                         </p>
 

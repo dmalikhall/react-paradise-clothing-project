@@ -17,7 +17,12 @@ function Home() {
 
                     </Link>
                 </div>
-                <h2>yep</h2>
+                <div className="mobile-hero-action">
+                    <h1>Love the way you look</h1>
+                    <Link to='/shop-all' className="mobile-hca-button">
+                        <button type='button'>shop now</button>
+                    </Link>
+                </div>
 
                 <section className='featured-items'>
                     <header>
@@ -26,34 +31,36 @@ function Home() {
                         <div className='line'></div>
                     </header>
 
-                    {/* <div className="the-items">
+                    <div className="the-items">
                         <Link to='all-tops' className="item">
                             <img src="https://source.unsplash.com/fTDWpCxLA0k" alt="cupcakess" />
                             <div className="all-category tops">
-                                <h3>All tops</h3>
+                                <h3><span className='all-text'>All</span>tops</h3>
                                 <button>shop now</button>
                             </div>
                         </Link>
                         <Link to='all-bottoms' className="item">
                             <img src="https://source.unsplash.com/rj8ohjW9RBA" alt="cupcakess" />
                             <div className="all-category bottoms">
-                                <h3 className='bottoms'>All bottoms</h3>
+                                <h3 className='bottoms'>
+                                    <span className='all-text'>All</span>
+                                    bottoms</h3>
                                 <button>shop now</button>
                             </div>
                         </Link>
                         <Link to='all-accessories' className="item">
                             <img src="https://source.unsplash.com/yzLvKZuK4hs" alt="cupcakess" />
                             <div className="all-category accessories">
-                                <h3>All accessories</h3>
+                                <h3><span className='all-text'>All</span>accessories</h3>
                                 <button>shop now</button>
                             </div>
                         </Link>
-                    </div> */}
+                    </div>
                 </section>
             </main>
 
 
-            
+
         </div>
     )
 }

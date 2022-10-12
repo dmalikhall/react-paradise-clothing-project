@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import '../src/styles/Navbar.css';
 import '../src/styles/Submenu.css';
-import '../src/styles/Home.css'
+import '../src/styles/Home.css';
+import '../src/styles/ShoppingCart.css'
 
 import App from './App';
 import { AppProvider } from './context';

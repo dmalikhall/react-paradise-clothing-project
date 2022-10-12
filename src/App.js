@@ -46,8 +46,8 @@ function App() {
 
      <Routes>
         <Route path='/' element={<Home />}/>
-        {/* <Route path='/shopping-cart' element={<ShoppingCart/>}/>
-        <Route path='shop-all' element={<ShopAll />} />
+        <Route path='/shopping-cart' element={<ShoppingCart/>}/>
+        {/* <Route path='shop-all' element={<ShopAll />} />
         <Route path='shop-all/:productId' element={<SingleProduct/>}/>
 
         <Route path='all-tops' element={<AllTops />} />
