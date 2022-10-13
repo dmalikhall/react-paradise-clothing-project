@@ -1,0 +1,297 @@
+.singleproduct-container {
+    padding: 24px;
+}
+
+
+
+.singleproduct-image {
+    width: 100%;
+    height: 50vh;
+}
+
+
+
+.singleproduct-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.singleproduct-info {
+    margin-top: 1rem;
+}
+
+.singleproduct-info h3 {
+    font-size: 1.5rem;
+    line-height: 1.2em;
+    text-transform: capitalize;
+}
+
+.singleproduct-info p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.singleproduct-info button {
+    width: 100%;
+    border-width: 1px;
+    border-color: rgb(48, 49, 50);
+    padding: 10px 16px;
+    min-width: 100px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.sp_quantity h3 {
+    margin-top:20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.singleproduct-info .sp_amount-btns {
+    display: grid;
+    gap: 1rem;
+    place-items: center;
+    grid-template-columns: 100px 1fr 100px;
+    -webkit-box-align: center;
+    width: 100%;
+
+
+    margin: 10px auto;
+
+}
+
+
+.singleproduct-info .sp_amount-btns .sp_amount-btn {
+    background: transparent;
+    border-color: black;
+    border-radius: 4px;
+
+    cursor: pointer;
+    padding: .5rem 0px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+
+}
+
+
+.select-size-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.select-size-container h4 {
+    text-transform: capitalize;
+}
+
+
+.select-size-button-container {
+    padding-top: 10px;
+
+    /*  display: flex;
+        gap: 1rem;
+        align-items: center;    
+        justify-content: space-between;
+    */
+}
+
+
+.select-size-btn {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 1rem 1.5rem;
+    margin-top: 10px;
+
+    cursor: pointer;
+    width: 100%;
+
+    text-transform: capitalize;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+
+
+}
+
+.select-size-btn:hover {
+    border: 1px solid black;
+}
+
+.select-size-btn.active {
+    border: 3px solid black;
+
+}
+
+
+.singleproduct-info .buttons {
+    margin-bottom: 20px;
+
+}
+
+
+
+
+
+
+.buttons .add-to-cart {
+    background-color: transparent;
+    line-height: 1.5;
+    margin-top: 1rem;
+
+    width: 100%;
+    border-width: 1px;
+    border-color: rgb(48, 49, 50);
+    padding: 10px 16px;
+    min-width: 100px;
+    font-size: 18px;
+    cursor: pointer;
+
+}
+
+
+.buttons .buy-now {
+    color: #fff;
+    background-color: black;
+    margin-top: 8px;
+
+    width: 100%;
+    border-width: 1px;
+    border-color: rgb(48, 49, 50);
+    padding: 10px 16px;
+    min-width: 100px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.extra-information-container {
+    padding-top: 24px;
+}
+
+.accordian-item {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #222;
+    margin-bottom: 12px;
+
+}
+
+.accordian-item header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+
+}
+
+.accordian-item header p {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+
+
+}
+
+.accordian-item button {
+    width: 0;
+}
+
+.accordian-btn {
+    margin-top: 6px;
+    background: none;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.accordian-item .desc {
+    color: rgb(48, 49, 50);
+
+
+}
+
+@media(min-width:350px) {
+    .singleproduct-image {
+        height: 65vh;
+    }
+}
+
+@media(min-width:400px) {
+    .singleproduct-image {
+        height: 70vh;
+    }
+
+    .singleproduct-info .sp_amount-btns {
+        width: 20%;
+        margin: 20px 0;
+    }
+}
+
+@media(min-width: 510px) {
+    .singleproduct-image {
+        height: 70vh;
+    }
+
+
+}
+
+@media(min-width: 600px) {
+    .singleproduct-image {
+        height: 75vh;
+    }
+
+    
+
+}
+
+@media(min-width:700px) {
+    .singleproduct-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .singleproduct-image {
+        width: 50%;
+    }
+
+    .singleproduct-info {
+        width: 40%;
+    }
+
+    .singleproduct-info {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 900px) {
+    .singleproduct-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+   
+
+}
+
+@media (min-width: 1100px) {
+    .singleproduct-container {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1300px) {
+    .singleproduct-container {
+        width: 65%;
+        margin: 0 auto;
+    }
+
+    .singleproduct-image {
+        height: 85vh;
+    }
+}

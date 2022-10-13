@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
+import Loading from '../components/Loading';
+import Error from './Error';
 
 function Home() {
-    const { closeSubmenu } = useGlobalContext()
+    const { closeSubmenu, products_loading: loading, products_error: error } = useGlobalContext();
+    if(loading) {
+        return <Loading/>
+      }
+      if(error) {
+        return <Error/>
+      }
     return (
         <div className="whole-container" onMouseOver={closeSubmenu}>
             <main>

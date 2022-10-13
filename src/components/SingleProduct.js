@@ -52,11 +52,21 @@ const SingleProduct = () => {
                     <h3>{name}</h3>
                     <p>${price}</p>
 
-                    <div className="amount-btns">
-                        <button type='button' className='amount-btn' onClick={decrease}><AiOutlineMinus /></button>
-                        <h2 className='amount'>{theAmount}</h2>
-                        <button type='button' className='amount-btn' onClick={increase}><AiOutlinePlus /></button>
+
+
+                    <div className="sp_quantity">
+                        <h3>Quantity</h3>
+
+                        <div className="sp_amount-btns">
+
+                            <button type='button' className='sp_amount-btn' onClick={decrease}><AiOutlineMinus /></button>
+                            <h2 className='sp_amount'>{theAmount}</h2>
+                            <button type='button' className='sp_amount-btn' onClick={increase}><AiOutlinePlus /></button>
+                        </div>
+
                     </div>
+
+
 
                     <section className='select-size-container'>
                         <h4>select size</h4>

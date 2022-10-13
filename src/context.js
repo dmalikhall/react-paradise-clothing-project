@@ -4,6 +4,7 @@ import reducer from './reducer';
 import { products_url as url } from './api/clothing-api';
 
 import axios from 'axios'
+import Loading from './components/Loading';
 // import products from './data';
 // import exampleProducts from './exampleproducts';
 
@@ -24,7 +25,10 @@ const initialState = {
     allShortsItems: [],
     allShortSleevesItems: [],
     allSunglassesItems: [],
-    allTightsItems: []
+    allTightsItems: [],
+
+    products_loading:false,
+    products_error: false,
 
 }
 
@@ -38,13 +42,17 @@ export const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const fetchProducts = async (url) => {
+        dispatch({type:'GET_PRODUCTS_BEGIN'})
+        
         try {
+            
+            
             const response = await axios.get(url)
             const products = response.data
             dispatch({type: 'GET_PRODUCT_SUCCESS', payload: products})
 
         } catch (error) {
-            console.log(error);
+            dispatch({type:'GET_PRODUCTS_ERROR'})
 
         }
 

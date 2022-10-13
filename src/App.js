@@ -24,18 +24,12 @@ import Headphones from './pages/Headphones';
 import Error from './pages/Error';
 
 import {useGlobalContext} from './context'
+import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 
 
 function App() {
-  const {loading} = useGlobalContext()
-  if(loading) {
-    return (
-      <div className="loading">
-        <h1>Loading...</h1>
-      </div>
-    )
-  }
   return (
 
     // <ShoppingCart/>
@@ -47,7 +41,7 @@ function App() {
      <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/shopping-cart' element={<ShoppingCart/>}/>
-        {/* <Route path='shop-all' element={<ShopAll />} />
+        <Route path='shop-all' element={<ShopAll />} />
         <Route path='shop-all/:productId' element={<SingleProduct/>}/>
 
         <Route path='all-tops' element={<AllTops />} />
@@ -81,9 +75,10 @@ function App() {
 
         
         
-        <Route path='*' element={<Error />} /> */}
+        <Route path='*' element={<Error />} />
         
       </Routes>
+      <Footer/>
     </BrowserRouter>
 
   );

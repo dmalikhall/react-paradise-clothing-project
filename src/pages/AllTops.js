@@ -2,12 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import products from '../data';
 import { useGlobalContext } from '../context';
+import Loading from '../components/Loading';
+import Error from './Error';
 
 
 
 
 const AllTops = () => {
-  const { closeSubmenu, allTopsItems } = useGlobalContext();
+  const { closeSubmenu, allTopsItems, products_loading: loading, products_error: error } = useGlobalContext();
+  if(loading) {
+    return <Loading/>
+  }
+  if(error) {
+    return <Error/>
+  }
 
 
 

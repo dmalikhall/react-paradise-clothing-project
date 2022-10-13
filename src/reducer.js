@@ -1,4 +1,9 @@
 const reducer = (state, action) => {
+    if(action.type === 'GET_PRODUCTS_BEGIN') {
+        return {...state, products_loading:true}
+    }
+
+    
     if (action.type === 'GET_PRODUCT_SUCCESS') {
         const allTops_items = action.payload.filter((category) => category.mainCategory === 'all-tops');
         const allAccessories_items = action.payload.filter((category) => category.mainCategory === 'all-accessories');
@@ -14,7 +19,7 @@ const reducer = (state, action) => {
         const allSunglasess_items = action.payload.filter((category) => category.subCategory === 'sunglasses');
         const allTights_items = action.payload.filter((category) => category.subCategory === 'tights');
         return { 
-            ...state, 
+            ...state, products_loading:false,
             allProducts: action.payload, 
             allTopsItems: allTops_items, 
             allAccessoryItems:  allAccessories_items,
@@ -31,6 +36,12 @@ const reducer = (state, action) => {
             allTightsItems: allTights_items
         }
     }    
+
+    if(action.type === 'GET_PRODUCTS_ERROR'){
+        return {...state, products_loading:false, products_error:true}       
+    }
+
+    
 }
 
 export default reducer
