@@ -23,16 +23,15 @@ import Headphones from './pages/Headphones';
 
 import Error from './pages/Error';
 
-import {useGlobalContext} from './context'
+
 import Footer from './components/Footer';
-import Loading from './components/Loading';
+
 
 
 
 function App() {
   return (
 
-    // <ShoppingCart/>
     <BrowserRouter>
       <Navbar />
        <Submenu />
@@ -86,6 +85,5 @@ function App() {
 
 export default App;
 
-// https://my-clothing-reacts-api.herokuapp.com/products
 
 

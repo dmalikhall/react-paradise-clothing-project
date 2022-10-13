@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import products from '../data';
+
 import { useGlobalContext } from '../context';
 import Loading from '../components/Loading';
 import Error from './Error';
@@ -35,6 +35,5 @@ const ShortSleeves = () => {
   )
 }
 
-// products.filter((category) => category.subCategory === 'short-sleeves')
 
 export default ShortSleeves

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import products from '../data';
 import { useGlobalContext } from '../context';
 import Loading from '../components/Loading';
 import Error from './Error';
@@ -35,6 +34,5 @@ const Hoodies = () => {
   )
 }
 
-// products.filter((category) => category.subCategory === 'hoodies')
 
 export default Hoodies

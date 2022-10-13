@@ -4,10 +4,6 @@ import reducer from './reducer';
 import { products_url as url } from './api/clothing-api';
 
 import axios from 'axios'
-import Loading from './components/Loading';
-// import products from './data';
-// import exampleProducts from './exampleproducts';
-
 
 const AppContext = React.createContext();
 
@@ -44,9 +40,7 @@ export const AppProvider = ({ children }) => {
     const fetchProducts = async (url) => {
         dispatch({type:'GET_PRODUCTS_BEGIN'})
         
-        try {
-            
-            
+        try {                       
             const response = await axios.get(url)
             const products = response.data
             dispatch({type: 'GET_PRODUCT_SUCCESS', payload: products})
@@ -79,17 +73,6 @@ export const AppProvider = ({ children }) => {
     const closeSubmenu = () => {
         setIsSubmenuOpen(false)
     }
-
-    // const getProducts = (allProducts) => {
-    //     dispatch({type: 'GET_PRODUCT_SUCCESS', payload: allProducts})
-    // }
-
-    
-
-
-
-
-
 
 
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import products from '../data';
 import { useGlobalContext } from '../context';
 import Loading from '../components/Loading';
 import Error from './Error';

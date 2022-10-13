@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import products from '../data';
 import { useGlobalContext } from '../context';
 import Loading from '../components/Loading';
 import Error from './Error';
@@ -36,6 +35,5 @@ const AllBottoms = () => {
   )
 }
 
-// products.filter((category) => category.mainCategory === 'all-bottoms')
 
 export default AllBottoms
